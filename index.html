@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>えいがさき京都・神戸 旅のしおり 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --kyoto-red: #8B1A1A;
+      --kyoto-gold: #C9A84C;
+      --kobe-navy: #1A2744;
+      --kobe-blue: #2C4A7C;
+      --cream: #FAF6F0;
+      --light-cream: #FDF9F4;
+      --text-dark: #2A2A2A;
+      --text-mid: #555555;
+      --text-light: #888888;
+      --border: #E8DDD0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--kyoto-red) 0%, #4A0E0E 40%, var(--kobe-navy) 100%);
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background-image:
+        repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, #fff 0, #fff 1px, transparent 0, transparent 50%);
+      background-size: 30px 30px;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero-year {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      letter-spacing: 0.4em;
+      color: var(--kyoto-gold);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .hero-title span {
+      color: var(--kyoto-gold);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-dates {
+      display: inline-flex;
+      gap: 2rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 0.8rem 2.5rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-dates span {
+      color: var(--kyoto-gold);
+      font-weight: 500;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,246,240,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--kyoto-red);
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--kyoto-red);
+      border-bottom-color: var(--kyoto-red);
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--kyoto-gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--kyoto-red), var(--kyoto-gold));
+      margin-bottom: 2.5rem;
+      border-radius: 2px;
+    }
+
+    /* ===== OVERVIEW ===== */
+    .overview {
+      background: var(--light-cream);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .overview-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .overview-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .overview-card-body {
+      padding: 1.5rem;
+    }
+
+    .overview-card-date {
+      font-size: 0.75rem;
+      color: var(--kyoto-gold);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .overview-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .overview-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ===== DAY SECTIONS ===== */
+    .day-section {
+      padding: 5rem 2rem;
+    }
+
+    .day-section:nth-child(odd) {
+      background: var(--light-cream);
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .day-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--border);
+      flex-shrink: 0;
+    }
+
+    .day-info h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .day-info .day-subtitle {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+    }
+
+    .day-tag {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-left: 0.5rem;
+    }
+
+    .tag-kyoto {
+      background: rgba(139,26,26,0.1);
+      color: var(--kyoto-red);
+    }
+
+    .tag-kobe {
+      background: rgba(26,39,68,0.1);
+      color: var(--kobe-navy);
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--kyoto-red), var(--kyoto-gold), var(--kobe-navy));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--kyoto-gold);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--kyoto-gold);
+    }
+
+    .timeline-item.highlight::before {
+      background: var(--kyoto-red);
+      box-shadow: 0 0 0 2px var(--kyoto-red);
+      width: 16px;
+      height: 16px;
+      left: -7px;
+    }
+
+    .timeline-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--kyoto-red);
+      padding-top: 2px;
+      text-align: right;
+    }
+
+    .timeline-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .timeline-content:hover {
+      border-left-color: var(--kyoto-gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .timeline-item.highlight .timeline-content {
+      border-left-color: var(--kyoto-red);
+      background: linear-gradient(135deg, #fff 0%, rgba(139,26,26,0.03) 100%);
+    }
+
+    .timeline-place {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-detail {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      padding: 0.15rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
+    }
+
+    .badge-food { background: #FFF3E0; color: #E65100; }
+    .badge-sight { background: #E8F5E9; color: #2E7D32; }
+    .badge-shop { background: #E3F2FD; color: #1565C0; }
+    .badge-transport { background: #F3E5F5; color: #6A1B9A; }
+    .badge-hotel { background: #FCE4EC; color: #880E4F; }
+
+    /* ===== PHOTO GALLERY ===== */
+    .gallery {
+      background: var(--kobe-navy);
+      padding: 5rem 2rem;
+    }
+
+    .gallery .section-title {
+      color: #fff;
+    }
+
+    .gallery .section-label {
+      color: var(--kyoto-gold);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+      min-height: 200px;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    /* ===== HOTEL ===== */
+    .hotel-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 2rem;
+    }
+
+    .hotel-map {
+      background: linear-gradient(135deg, var(--kobe-navy), var(--kobe-blue));
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .hotel-map h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hotel-map p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+
+    .hotel-map .hotel-tel {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: var(--kyoto-gold);
+      font-weight: 600;
+    }
+
+    .hotel-details {
+      padding: 3rem;
+    }
+
+    .hotel-details h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--kobe-navy);
+    }
+
+    .hotel-feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .hotel-feature:last-child {
+      border-bottom: none;
+    }
+
+    .hotel-feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== COST TABLE ===== */
+    .cost-section {
+      background: var(--light-cream);
+    }
+
+    .cost-table-wrap {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      margin-top: 2rem;
+    }
+
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cost-table thead {
+      background: linear-gradient(135deg, var(--kyoto-red), #6B1414);
+      color: #fff;
+    }
+
+    .cost-table th {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .cost-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .cost-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cost-table tr:hover td {
+      background: var(--cream);
+    }
+
+    .cost-table .total-row td {
+      background: rgba(139,26,26,0.05);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--kyoto-red);
+    }
+
+    .cost-table .per-person-row td {
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--kobe-navy);
+    }
+
+    .cost-amount {
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+    }
+
+    /* ===== CHECKLIST ===== */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .checklist-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .checklist-box {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--kyoto-gold);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-sub {
+      font-size: 0.8rem;
+      color: var(--kyoto-gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .hotel-card {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .day-number {
+        font-size: 3rem;
+      }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .nav, .hero-scroll { display: none; }
+      .section, .day-section { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <p class="hero-year">Travel Itinerary 2026</p>
+    <h1 class="hero-title">京都<span>・</span>神戸のしおり</h1>
+    <p class="hero-subtitle">Kyoto &amp; Kobe — A Journey Through Nijigsaki High the Movie Part2</p>
+    <div class="hero-dates">
+      <span>4月4日(土)</span>
+      <span>→</span>
+      <span>4月6日(月)</span>
+      <span>2泊3日</span>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">えいがさき京都・神戸 旅のしおり</span>
+    <ul class="nav-links">
+      <li><a href="#day1">Day 1</a></li>
+      <li><a href="#day2">Day 2</a></li>
+      <li><a href="#day3">Day 3</a></li>
+      <li><a href="#gallery">ギャラリー</a></li>
+      <li><a href="#hotel">ホテル</a></li>
+      <li><a href="#cost">費用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<section class="section overview" id="overview">
+  <div class="section-inner">
+    <p class="section-label">Overview</p>
+    <h2 class="section-title">旅のハイライト</h2>
+    <div class="section-divider"></div>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <img src="bamboo.png" alt="嵐山竹林" class="overview-card-img">
+        <div class="overview-card-body">
+          <p class="overview-card-date">Day 1 — April 4</p>
+          <h3 class="overview-card-title">京都巡礼　part1</h3>
+          <p class="overview-card-desc">嵐山の竹林や東山の一本橋を散策。夕刻に神戸へ移動し、神戸牛の夕食。</p>
+        </div>
+      </div>
+      <div class="overview-card">
+        <img src="kobe.png" alt="神戸布引ロープウェイ" class="overview-card-img">
+        <div class="overview-card-body">
+          <p class="overview-card-date">Day 2 — April 5</p>
+          <h3 class="overview-card-title">神戸巡礼</h3>
+          <p class="overview-card-desc">萌黄の館、アニメイト三ノ宮、そして神戸ポートタワーからの絶景夕食を堪能。</p>
+        </div>
+      </div>
+      <div class="overview-card">
+        <img src="yasaka.png" alt="八坂の塔" class="overview-card-img">
+        <div class="overview-card-body">
+          <p class="overview-card-date">Day 3 — April 6</p>
+          <h3 class="overview-card-title">京都巡礼　part2</h3>
+          <p class="overview-card-desc">八坂庚申堂、八坂の塔、高台寺と祇園エリアを歩き、koé donuts kyotoでランチ。ポケモンセンターで旅の締めくくり。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<section class="day-section" id="day1">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-info">
+        <h2>4月4日（土）<span class="day-tag tag-kyoto">京都</span><span class="day-tag tag-kobe">神戸</span></h2>
+        <p class="day-subtitle">町田発 → 嵐山 → 東山 → 三ノ宮</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">7:00</div>
+        <div class="timeline-content">
+          <div class="timeline-place">横浜線 町田駅 集合</div>
+          <div class="timeline-detail">7:04 町田発 → 7:58 新横浜発（新幹線）</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">9:50</div>
+        <div class="timeline-content">
+          <div class="timeline-place">京都着</div>
+          <div class="timeline-detail">新幹線中央乗換口 → EV上へ → 一番奥のEVで下へ → 33番線へ進む</div>
+          <span class="timeline-badge badge-transport">乗換</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:11</div>
+        <div class="timeline-content">
+          <div class="timeline-place">嵯峨嵐山駅へ</div>
+          <div class="timeline-detail">京都駅33番線→嵯峨野線(下関方面)→嵯峨嵐山駅</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place">嵯峨嵐山駅 → キモノフォレスト【AR①】・竹林の小径</div>
+          <div class="timeline-detail">徒歩10分。えいがさき2章冒頭、竹林の小径を散策。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:17</div>
+        <div class="timeline-content">
+          <div class="timeline-place">嵯峨嵐山駅 → 東山駅 → 一本橋【AR②】&カーブミラー</div>
+          <div class="timeline-detail">嵯峨野線で二条駅 → 東西線で東山駅 → 徒歩4分</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">13:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ロームシアター京都へ移動【AR③】</div>
+          <div class="timeline-detail">一本橋から徒歩13分。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">14:55</div>
+        <div class="timeline-content">
+          <div class="timeline-place">菓子屋のなへ移動</div>
+          <div class="timeline-detail">タクシー20分。</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">15:25</div>
+        <div class="timeline-content">
+          <div class="timeline-place">菓子屋のな　で和菓子</div>
+          <div class="timeline-detail">ᶘｲ^⇁^ﾅ川</div>
+          <span class="timeline-badge badge-food">グルメ</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">15:45</div>
+        <div class="timeline-content">
+          <div class="timeline-place">京都駅へ移動</div>
+          <div class="timeline-detail">徒歩25分。</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">16:20</div>
+        <div class="timeline-content">
+          <div class="timeline-place">京都駅（京都伊勢丹 B1F）でお土産購入【AR④】</div>
+          <div class="timeline-detail"><a href="https://www.leafkyoto.net/240920-kyoto-gensenmiyage/"target="_blank" rel="noopener">京都駅で買えるお土産</a></div>
+          <span class="timeline-badge badge-shop">ショッピング</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">17:12</div>
+        <div class="timeline-content">
+          <div class="timeline-place">三ノ宮駅へ</div>
+          <div class="timeline-detail">京都駅5番線 → JR京都線新快速（湖西線経由姫路行）→　三ノ宮駅</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">18:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place"><a href="https://www.koubegyuu.com/amona/"target="_blank" rel="noopener">神戸牛 洋食 アモナ（夕食）</a></div>
+          <div class="timeline-detail">三ノ宮駅から徒歩7分。神戸牛を使った洋食の名店で旅の初日を締めくくる。</div>
+          <span class="timeline-badge badge-food">夕食</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">夕食後</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ホテルサンルートソプラ神戸へ移動</div>
+          <div class="timeline-detail">アモナから徒歩10分</div>
+          <span class="timeline-badge badge-hotel">宿泊</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 2 -->
+<section class="day-section" id="day2">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-info">
+        <h2>4月5日（日）<span class="day-tag tag-kobe">神戸</span></h2>
+        <p class="day-subtitle">布引ハーブ園 → 北野異人館 → 南京町 → ハーバーランド</p>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item highlight">
+        <div class="timeline-time">10:00</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ホテル→神戸布引ハーブ園／ロープウェイ【AR①】</div>
+          <div class="timeline-detail">ホテルからタクシー8分。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:35</div>
+        <div class="timeline-content">
+          <div class="timeline-place">萌黄の館へ移動</div>
+          <div class="timeline-detail">徒歩15分。明治末期に建てられた緑色の洋館。北野異人館街を代表する建物。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:05</div>
+        <div class="timeline-content">
+          <div class="timeline-place">サンキタ広場へ移動</div>
+          <div class="timeline-detail">徒歩15分。</div>
+          <span class="timeline-badge badge-sight">散策</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:35</div>
+        <div class="timeline-content">
+          <div class="timeline-place">THE LIVE HOUSE CHICKEN GEORGE【AR②】へ移動</div>
+          <div class="timeline-detail">徒歩6分。神戸を代表するライブハウスを見学。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:00</div>
+        <div class="timeline-content">
+          <div class="timeline-place">アニメイト三宮へ移動</div>
+          <div class="timeline-detail">徒歩8分。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:45</div>
+        <div class="timeline-content">
+          <div class="timeline-place">神戸三宮センター街【AR③】へ移動</div>
+          <div class="timeline-detail">徒歩3分。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">13:15</div>
+        <div class="timeline-content">
+          <div class="timeline-place">旧居留地の瓦斯灯【AR④】へ移動</div>
+          <div class="timeline-detail">徒歩8分。明治時代の面影を残すガス灯が立ち並ぶ旧居留地を散策。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">13:40</div>
+        <div class="timeline-content">
+          <div class="timeline-place">南京町へ移動</div>
+          <div class="timeline-detail">徒歩8分。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">13:50</div>
+        <div class="timeline-content">
+          <div class="timeline-place">南京町で軽食【AR⑤】</div>
+          <div class="timeline-detail">徒歩8分。ワシは南京町のブタマンと同じくらいケンカが好きやねんで。</div>
+          <span class="timeline-badge badge-food">グルメ</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">15:00</div>
+        <div class="timeline-content">
+          <div class="timeline-place">神戸煉瓦倉庫へ移動 → 神戸ハーバーランド umie【AR⑥】</div>
+          <div class="timeline-detail">徒歩23分で煉瓦倉庫 → 徒歩3分でumie。港エリアのショッピングモールを散策。</div>
+          <span class="timeline-badge badge-shop">ショッピング</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">16:40</div>
+        <div class="timeline-content">
+          <div class="timeline-place">メリケンパーク・<a href="https://tabelog.com/hyogo/A2801/A280102/28069197/"target="_blank" rel="noopener">神戸ポートタワー（夕食）</a>【AR⑦⑧】</div>
+          <div class="timeline-detail">徒歩7分。「Circle of Love」の聖地で夕食。</div>
+          <span class="timeline-badge badge-food">夕食</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">夕食後</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ホテル帰着 or 神戸大橋見学</div>
+          <div class="timeline-detail">気力があればポートターミナル駅へ行き神戸大橋を見学。</div>
+          <span class="timeline-badge badge-hotel">宿泊</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 3 -->
+<section class="day-section" id="day3">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-info">
+        <h2>4月6日（月）<span class="day-tag tag-kyoto">京都</span></h2>
+        <p class="day-subtitle">神戸チェックアウト → 東山・祇園 → 帰路</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">9:20</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ホテルチェックアウト</div>
+          <div class="timeline-detail">徒歩で三ノ宮駅へ </div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">10:07</div>
+        <div class="timeline-content">
+          <div class="timeline-place">京都駅へ</div>
+          <div class="timeline-detail">三ノ宮 → JR神戸線新快速（米原経由近江塩津行）→　京都駅</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">11:20</div>
+        <div class="timeline-content">
+          <div class="timeline-place">八坂庚申堂・八坂の塔【AR⑤⑥】&食べ歩き</div>
+          <div class="timeline-detail">京都 → 市バスD2乗り場206(清水寺・祇園・百万遍・北大路バスターミナル) → 清水道 → 徒歩3分。美味しそうなものがあったら食べる。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:50</div>
+        <div class="timeline-content">
+          <div class="timeline-place">高台寺へ移動【AR⑦】</div>
+          <div class="timeline-detail">徒歩15分。豊臣秀吉の正室・ねねゆかりの禅寺。美しい枯山水庭園と竹林。</div>
+          <span class="timeline-badge badge-sight">観光</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">13:20</div>
+        <div class="timeline-content">
+          <div class="timeline-place">祇園祭ぎゃらりぃへ移動【AR⑧】</div>
+          <div class="timeline-detail">徒歩15分</div>
+          <span class="timeline-badge badge-shop">ショッピング</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">13:50</div>
+        <div class="timeline-content">
+          <div class="timeline-place">アニメイト京都へ移動 </div>
+          <div class="timeline-detail">徒歩13分</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">14:10</div>
+        <div class="timeline-content">
+          <div class="timeline-place">アニメイト京都でAR景品交換 </div>
+          <div class="timeline-detail">ARラリー達成でもらえる景品を取得</div>
+          <span class="timeline-badge badge-transport">景品交換</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">14:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place">koé donuts kyoto（昼食）</div>
+          <div class="timeline-detail">アニメイトから徒歩2分。オーガニック素材のおしゃれなドーナツ店でランチ。</div>
+          <span class="timeline-badge badge-food">昼食</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">15:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place">ポケモンセンターキョウトへ移動</div>
+          <div class="timeline-detail">徒歩12分。メダル&買い物。</div>
+          <span class="timeline-badge badge-shop">ショッピング</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">16:30</div>
+        <div class="timeline-content">
+          <div class="timeline-place">四条 → 烏丸線 → 京都駅</div>
+          <div class="timeline-detail">徒歩3分で四条駅 → 烏丸線（竹田行 3分）→ 京都駅</div>
+          <span class="timeline-badge badge-transport">移動</span>
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-time">18:54</div>
+        <div class="timeline-content">
+          <div class="timeline-place">京都発 → 新横浜着 20:46</div>
+          <div class="timeline-detail">新幹線で帰路へ。2泊3日の旅、お疲れさまでした！</div>
+          <span class="timeline-badge badge-transport">帰路</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <p class="section-label">Photo Gallery</p>
+    <h2 class="section-title" style="color:#fff;">見どころ</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item large">
+        <img src="arashi.png" alt="嵐山竹林の小径">
+        <div class="gallery-item-overlay">嵐山 竹林の小径</div>
+      </div>
+      <div class="gallery-item">
+        <img src="rohm.png" alt="ロームシアター京都">
+        <div class="gallery-item-overlay">ロームシアター京都</div>
+      </div>
+      <div class="gallery-item">
+        <img src="umie.png" alt="神戸ハーバーランドumie">
+        <div class="gallery-item-overlay">神戸ハーバーランドumie</div>
+      </div>
+      <div class="gallery-item">
+        <img src="ippon.png" alt="一本橋">
+        <div class="gallery-item-overlay">一本橋</div>
+      </div>
+      <div class="gallery-item">
+        <img src="nona.png" alt="菓子屋のな">
+        <div class="gallery-item-overlay">菓子屋のな</div>
+      </div>
+      <div class="gallery-item">
+        <img src="animate.png" alt="アニメイト三宮">
+        <div class="gallery-item-overlay">アニメイト三宮</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTEL -->
+<section class="section" id="hotel">
+  <div class="section-inner">
+    <p class="section-label">Accommodation</p>
+    <h2 class="section-title">宿泊ホテル</h2>
+    <div class="section-divider"></div>
+    <div class="hotel-card">
+      <div class="hotel-map">
+        <h3>ホテルサンルートソプラ神戸</h3>
+        <p>〒651-0084<br>兵庫県神戸市中央区磯辺通１丁目１−２２</p>
+        <p class="hotel-tel">TEL: 078-222-7500</p>
+      </div>
+      <div class="hotel-details">
+        <h3>宿泊詳細</h3>
+        <div class="hotel-feature">
+          <div class="hotel-feature-icon">🛏</div>
+          <div>
+            <strong>トリプルルーム</strong><br>
+            <span style="font-size:0.82rem;color:var(--text-mid)">28㎡ / 3名利用</span>
+          </div>
+        </div>
+        <div class="hotel-feature">
+          <div class="hotel-feature-icon">📅</div>
+          <div>
+            <strong>チェックイン</strong>：4月4日（土）夕食後<br>
+            <strong>チェックアウト</strong>：4月6日（月）9:20
+          </div>
+        </div>
+        <div class="hotel-feature">
+          <div class="hotel-feature-icon">💴</div>
+          <div>
+            <strong>宿泊費合計</strong>：42,800円<br>
+            <span style="font-size:0.82rem;color:var(--text-mid)">2泊 / 3名</span>
+          </div>
+        </div>
+        <div class="hotel-feature">
+          <div class="hotel-feature-icon">📍</div>
+          <div>
+            三ノ宮駅から徒歩圏内。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="section cost-section" id="cost">
+  <div class="section-inner">
+    <p class="section-label">Budget</p>
+    <h2 class="section-title">費用</h2>
+    <div class="section-divider"></div>
+    <div class="cost-table-wrap">
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>内訳</th>
+            <th class="cost-amount">金額（円）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>新幹線</strong></td>
+            <td>往復（3名分）</td>
+            <td class="cost-amount">66,340</td>
+          </tr>
+          <tr>
+            <td><strong>嵯峨嵐山 → 東山</strong></td>
+            <td>嵯峨野線・東西線</td>
+            <td class="cost-amount">920</td>
+          </tr>
+          <tr>
+            <td><strong>京都・三ノ宮間</strong></td>
+            <td>往復（JR京都線）</td>
+            <td class="cost-amount">4,460</td>
+          </tr>
+          <tr>
+            <td><strong>宿泊費</strong></td>
+            <td>ホテルサンルートソプラ神戸（2泊）</td>
+            <td class="cost-amount">42,800</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2"><strong>合計</strong></td>
+            <td class="cost-amount"><strong>114,520</strong></td>
+          </tr>
+          <tr class="per-person-row">
+            <td colspan="2"><strong>一人当たり</strong></td>
+            <td class="cost-amount"><strong>38,174</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-light);margin-top:1rem;">※ 上記は交通費・宿泊費のみの合計です。食事・お土産代は含みません。</p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="section" id="checklist">
+  <div class="section-inner">
+    <p class="section-label">Packing List</p>
+    <h2 class="section-title">持ち物チェックリスト</h2>
+    <div class="section-divider"></div>
+    <div class="checklist-grid">
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>えいがさき 2章グッズ</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>ICカード（Suica等）</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>スマートフォン・充電器</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>財布・現金</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>着替え（2泊分）</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>洗面用具</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>モバイルバッテリー</span>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-box"></div>
+        <span>雨具（折りたたみ傘）</span>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-title">えいがさき京都・神戸2026</p>
+  <p class="footer-sub">April 4–6, 2026</p>
+  <p class="footer-note">※ 下線部（新幹線・ホテル）は変更不可の行程です。その他の行程は状況に応じて調整可能です。</p>
+</footer>
+
+</body>
+</html>
